@@ -1,14 +1,63 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Popular TV shows      
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="search"></ion-icon> 
+      </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+<ion-content>
+
+<!-- om items weer te geven
+  <ion-list>
+    <ion-item detail-push *ngFor="let show of tvshows">
+      <ion-thumbnail item-start> <img [src]="show.thumb"/> </ion-thumbnail>
+      <h2>{{show.title}}</h2>
+    </ion-item>
+  </ion-list> 
+-->
+
+ <!-- items met actieknoppen als je slide 
+   <ion-list>
+    <ion-item-sliding *ngFor="let show of tvshows">om extra opties te tonen, bvb meerder knoppen'
+      <ion-item detail-push >
+        <ion-thumbnail item-start> <img [src]="show.thumb"/> </ion-thumbnail>
+        <h2>{{show.title}}</h2>
+      </ion-item>
+      <ion-item-options side = "right">
+        <button ion-button color="secondary">
+          <ion-icon name="star"> </ion-icon>
+        </button> 
+        <button ion-button color="secondary">
+            <ion-icon name="search"> </ion-icon>
+          </button> 
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list> -->
+
+   <ion-list>
+    <ion-item-sliding *ngFor="let show of shows">om extra opties te tonen, bvb meerder knoppen'
+      <ion-item detail-push >
+        <ion-thumbnail item-start> <a [href]="show.image_thumbnail_path"><img [src]="show.image_thumbnail_path"/></a> </ion-thumbnail>
+        <h2> {{show.name}}</h2><p>{{show.network}}<br><small>{{show.country}}</small></p>
+      </ion-item>
+      <ion-item-options side = "right">
+        <button ion-button color="secondary">
+          <ion-icon name="star"> </ion-icon>
+        </button> 
+        <button ion-button color="secondary">
+            <ion-icon name="search"> </ion-icon>
+        </button> 
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+
+
+
+  </ion-content>
